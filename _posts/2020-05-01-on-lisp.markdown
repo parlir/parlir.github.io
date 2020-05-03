@@ -1,0 +1,71 @@
+---
+layout: post
+title:  "Why Lisp?"
+date:   2020-05-01 22:00:18 -0800
+categories: programming
+---
+
+- [Macros and Homoiconicity](#org3e2ced2)
+- [Everything is an expression](#orgdec5999)
+- [REPL based development](#org782e4cf)
+
+
+
+<a id="org3e2ced2"></a>
+
+# Macros and Homoiconicity
+
+Lisp is homoiconic (fancy term meaning a lisp program is composed of it's own datastructures). In Lisp you can write programs that write programs and it's idiomatic to do so. Writing code and manipulating code is the same as manipulating and writing data and you can use all of the same libraries to do either.
+
+Lisp compilers have tie-ins where they run these programs that write programs (macros and macro expansion). The compiler reads in some form specified by the macro and producing code which could either be expanded further (your macro for instance could produce other macros) or move along to the next phase in compilation.
+
+More generally the language is hackable and you can make things idiomatic or create new ways of doing things that are otherwise impossible in another language.
+
+<span class="underline">For instance:</span>
+
+* If your language doesn't have pattern matching you wait and hope that some comittee agrees to add it to the spec. In lisp you write it. <https://github.com/guicho271828/trivia/> <https://github.com/clojure/core.match>
+
+*  You can build custom DSLs with radically different behavior <span class="underline">Logic Programming</span> <https://github.com/clojure/core.logic>
+
+*  Can make things idiomatic and less verbose <span class="underline">Compojure routes</span>
+
+```clojure
+(routes
+   (GET "/foo" [] "Hello Foo")
+   (GET "/bar" [] "Hello Bar")))
+```
+
+There's a strong feeling of freedom when use a lisp. I never have a feeling when using lisp that I'm limited by my language. If I want something I make it.
+
+
+<a id="orgdec5999"></a>
+
+# Everything is an expression
+
+This is mostly true with exceptions (special forms and macros). An evaluation means the compiler reads in some form and returns value(/s). When everything is an expression everything can be treated universally in the same way and you remove the burden of differentiating between statements and expressions.
+
+You want to assign a variable the results of an evaluation of a conditional?
+
+```clojure
+(let [v (if (x > 10) "x is biger than 10" "x is small")])
+```
+
+bodies of expressions ultimately yeild a value.
+
+```clojure
+(do (let [v 10 y 5] (+ x y))) ;; Yields 15 
+```
+
+And you could assign this to a variable or pass it into a function (because this evaluation is ultimately just yielding a value)
+
+```clojure
+(let [f (fn [v] (println v) v)]
+  (f (do (let [v 10 y 5] (+ x y))))) ;; Prints 15 to the screen and returns 15
+```
+
+
+<a id="org782e4cf"></a>
+
+# REPL based development
+
+REPL[Read-Eval-Print-Loop] based development is at the core of the dev experience with LISP. It allows immediate feedback and an interactive experience where you write out code then immediatly use that code in the repl. This tight feedback loop adds significantly to productivity I'm not waiting on a compiler to spit out some artifact that I run. I immediatly am able to access the code that I write.
