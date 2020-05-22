@@ -35,7 +35,7 @@ More generally the language is hackable and you can make things idiomatic or cre
    (GET "/bar" [] "Hello Bar")))
 ```
 
-There's a strong feeling of freedom when use a lisp. If the language doesn't have something I want or need I mae it.
+There's a strong feeling of freedom when using a lisp. If the language doesn't have something I want or need I make it.
 
 <a id="orgdec5999"></a>
 
