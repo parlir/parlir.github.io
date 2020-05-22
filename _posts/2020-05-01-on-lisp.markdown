@@ -35,8 +35,7 @@ More generally the language is hackable and you can make things idiomatic or cre
    (GET "/bar" [] "Hello Bar")))
 ```
 
-There's a strong feeling of freedom when use a lisp. I never have a feeling when using lisp that I'm limited by my language. If I want something I make it.
-
+There's a strong feeling of freedom when use a lisp. If the language doesn't have something I want or need I mae it.
 
 <a id="orgdec5999"></a>
 
@@ -44,19 +43,19 @@ There's a strong feeling of freedom when use a lisp. I never have a feeling when
 
 This is mostly true with exceptions (special forms and macros). An evaluation means the compiler reads in some form and returns value(/s). When everything is an expression everything can be treated universally in the same way and you remove the burden of differentiating between statements and expressions.
 
-You want to assign a variable the results of an evaluation of a conditional?
+Assign a variable the results of an evaluation of a conditional:
 
 ```clojure
 (let [v (if (x > 10) "x is biger than 10" "x is small")])
 ```
 
-bodies of expressions ultimately yeild a value.
+Bodies of expressions ultimately yeild a value:
 
 ```clojure
 (do (let [v 10 y 5] (+ x y))) ;; Yields 15 
 ```
 
-And you could assign this to a variable or pass it into a function (because this evaluation is ultimately just yielding a value)
+And you could assign this to a variable or pass it into a function:
 
 ```clojure
 (let [f (fn [v] (println v) v)]
@@ -68,4 +67,4 @@ And you could assign this to a variable or pass it into a function (because this
 
 # REPL based development
 
-REPL[Read-Eval-Print-Loop] based development is at the core of the dev experience with LISP. It allows immediate feedback and an interactive experience where you write out code then immediatly use that code in the repl. This tight feedback loop adds significantly to productivity I'm not waiting on a compiler to spit out some artifact that I run. I immediatly am able to access the code that I write.
+REPL[Read-Eval-Print-Loop] based development. The big advantage here is that it allows immediate feedback and an interactive experience where you write out code then immediatly use that code in the repl. This tight feedback loop adds significantly to productivity.
