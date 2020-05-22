@@ -23,11 +23,12 @@ More generally the language is hackable and you can make things idiomatic or cre
 
 <span class="underline">For instance:</span>
 
-* If your language doesn't have pattern matching you wait and hope that some comittee agrees to add it to the spec. In lisp you write it. <https://github.com/guicho271828/trivia/> <https://github.com/clojure/core.match>
+* If your language doesn't have pattern matching you wait and hope that some comittee agrees to add it to the spec. In lisp you write it. <https://github.com/clojure/core.match>
 
-*  You can build custom DSLs with radically different behavior <span class="underline">Logic Programming</span> <https://github.com/clojure/core.logic>
+*  You can build custom DSLs with radically different behavior _Logic Programming_
+<https://github.com/clojure/core.logic>
 
-*  Can make things idiomatic and less verbose <span class="underline">Compojure routes</span>
+*  Can make things idiomatic and less verbose _Compojure routes_
 
 ```clojure
 (routes
